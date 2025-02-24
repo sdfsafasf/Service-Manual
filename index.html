@@ -452,7 +452,11 @@ footer {
 
 </head>
 <body>
-
+<div id="update-notification" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8); color: white; display: flex; justify-content: center; align-items: center; flex-direction: column; z-index: 9999;">
+    <h2>🔄 A new update is available!</h2>
+    <p>Click below to restart and apply updates.</p>
+    <button id="restart-app" style="padding: 10px 20px; font-size: 16px; background: #28a745; color: white; border: none; cursor: pointer;">Restart Now</button>
+</div>
 
 <header class="header">  
     <nav class="navigation">
@@ -8369,6 +8373,16 @@ footer {
 	
 	
 </div>
+<script>
+    window.electronAPI.onUpdateAvailable(() => {
+        const updateDiv = document.getElementById('update-notification');
+        updateDiv.style.display = 'flex';
+
+        document.getElementById('restart-app').addEventListener('click', () => {
+            window.electronAPI.restartApp();
+        });
+    });
+</script>
 
 <script>
 
