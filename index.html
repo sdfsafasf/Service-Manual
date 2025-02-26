@@ -475,7 +475,7 @@ footer {
     background-color: #181818; /* Dark background for the title bar */
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 0px 0 20px;
     justify-content: space-between;
     position: fixed;
     top: 0;
@@ -494,7 +494,7 @@ footer {
 #titleIcon {
     width: 24px; /* Adjust icon size */
     height: 24px;
-    margin-right: 10px;
+    margin-right: 0px;
 
 }
 
@@ -509,28 +509,32 @@ footer {
 /* Window Control Buttons */
 .windowButtons {
     display: flex;
-    gap: 10px;
 }
 
 /* Minimize, Maximize, Close Buttons */
 button {
     background: transparent;
     border: none;
-    color: white;
+    color: #7e7d7d;
     font-size: 20px;
-    font-weight: bold;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
+	height:40px;
+	Width:50px;
 }
 
 button:hover {
     background: rgba(255, 255, 255, 0.2); /* Hover effect */
+	color:white;
 }
 
 button:active {
-    transform: scale(0.9); /* Button active effect */
+	background-color:#bd1e2d;
 }
-
+#closeButton:hover{
+color:white;
+background-color:red;
+}
 /* Minimize Button */
 .minimizeBtn {
     font-size: 18px;
@@ -546,10 +550,7 @@ button:active {
     font-size: 20px;
 }
 
-/* Content Margin for Title Bar */
-#contentContainer {
-    margin-top: 40px; /* Ensure that content doesn't get covered by the title bar */
-}
+
 
 </style>
 
@@ -559,9 +560,9 @@ button:active {
         <img src="assets/icon.ico" id="titleIcon" alt="App Icon" class="icon">
         <span id="windowTitle">Service Manuals</span> <!-- Page Name, will be dynamically set -->
         <div class="windowButtons">
-            <button id="minimizeButton" class="minimizeBtn">_</button>
+            <button id="minimizeButton" class="minimizeBtn">−</button>
             <button id="maximizeButton" class="maximizeBtn">☐</button>
-            <button id="closeButton" class="closeBtn">✖</button>
+            <button id="closeButton" class="closeBtn">✕</button>
         </div>
     </div>
 
