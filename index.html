@@ -500,10 +500,10 @@ footer {
 
 /* Title Text Styling */
 #windowTitle {
+padding-left:20px;
     flex-grow: 1;
     color: white;
     font-size: 18px;
-    font-weight: bold;
 }
 
 /* Window Control Buttons */
@@ -528,13 +528,22 @@ button:hover {
 	color:white;
 }
 
-button:active {
+#closebutton:active {
 	background-color:#bd1e2d;
 }
+
 #closeButton:hover{
 color:white;
 background-color:red;
 }
+.closeBtn:focus {
+    outline: none; /* Remove the default focus outline */
+	background-color:#bd1e2d;
+}
+
+
+
+
 /* Minimize Button */
 .minimizeBtn {
     font-size: 18px;
