@@ -198,7 +198,7 @@
     width: 100%;
     background-color: #181818; /* Solid dark background */
     color: #ddd;
-    margin-top: 0;
+    margin-top: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
     position: relative;
@@ -466,20 +466,28 @@ footer {
 }
 
 
+
+
 /* Custom Title Bar Styles */
 .customTitleBar {
     width: 100%;
     height: 40px; /* Adjust height */
-    background-color: #333; /* Dark background for the title bar */
+    background-color: #181818; /* Dark background for the title bar */
     display: flex;
     align-items: center;
     padding: 0 20px;
     justify-content: space-between;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow for effect */
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+	
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Icon in Title Bar */
@@ -487,6 +495,7 @@ footer {
     width: 24px; /* Adjust icon size */
     height: 24px;
     margin-right: 10px;
+
 }
 
 /* Title Text Styling */
@@ -495,9 +504,6 @@ footer {
     color: white;
     font-size: 18px;
     font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 /* Window Control Buttons */
@@ -540,20 +546,10 @@ button:active {
     font-size: 20px;
 }
 
-/* Remove window title bar shadow when maximized */
-body.maximized {
-    margin-top: 0; /* Adjust top margin */
+/* Content Margin for Title Bar */
+#contentContainer {
+    margin-top: 40px; /* Ensure that content doesn't get covered by the title bar */
 }
-
-
-
-
-
-
-
-
-
-
 
 </style>
 
@@ -8490,7 +8486,7 @@ body.maximized {
 <script>
         // Close Button
         document.getElementById("closeButton").addEventListener("click", () => {
-            window.close(); // Close the application window
+            window.electronAPI.closeWindow(); // Close the application window
         });
 
         // Minimize Button
@@ -8506,7 +8502,7 @@ body.maximized {
         // Set the page title dynamically based on <title> tag
         const pageTitle = document.title; // Get title from <title> tag
         document.getElementById('windowTitle').innerText = pageTitle; // Update the title in the custom title bar
-</script>
+    </script>
 
 
 
