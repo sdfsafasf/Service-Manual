@@ -23,21 +23,29 @@
 	}
 
 	body {
-		font-family: Arial, sans-serif;
-		margin: 0;
-		padding: 0;
-		background-color: #a3a0a0;
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #a3a0a0;
+    display: block;
+    min-height: 100vh; /* Full height */
+    overflow-x: hidden; /* No horizontal scrolling */
 	}
+/* Create space for custom title bar */
 
 	html, body {
 		height: 100%;
 	}
+	
+	
+	
+	
+	
+	
 /* ✅ Full Scrollbar Styling for Dark Theme */
 ::-webkit-scrollbar {
     width: 9px; /* ✅ Adjust scrollbar width */
+	margin-top: 30px; /* This matches the height of the custom title bar */
 }
 
 /* ✅ Scrollbar Track (Background) */
@@ -49,7 +57,7 @@
 /* ✅ Scrollbar Handle (Draggable Part) */
 ::-webkit-scrollbar-thumb {
     background: #555; /* ✅ Darker gray handle */
-    border-radius: 10px; /* ✅ Rounded handle */
+    border-radius: 5px; /* ✅ Rounded handle */
 }
 
 /* ✅ Scrollbar Handle on Hover */
@@ -199,12 +207,12 @@
     width: 100%;
     background-color: #181818; /* Solid dark background */
     color: #ddd;
-    margin-top: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
     position: relative;
-    z-index: 10; /* Keeps it above other elements */
+    z-index: 1000; /* Keeps it above other elements */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Keeps the nice shadow */
+	
 }
 
 
@@ -241,7 +249,8 @@
 		color: black;
 	}
 
-/* Back to top button styling */
+
+/* Back-to-Top Button Styling */
 	.back-to-top-button {
 		position: fixed;
 		bottom: 20px;
@@ -262,6 +271,8 @@
 		background-color: #e0a800; /* Darker yellow-gold for hover */
 		text-decoration: underline;
 	}
+
+
 
 /* Font Awesome PDF Icon Inline SVG - START */
 
@@ -430,20 +441,6 @@ footer {
     display: block;
 }
 
-
-
-/* Hide icon and placeholder
-
-
-
-
-
-
-
-
-
-
-
 /* Style for the search button and clear button */
 #search-button,
 #clear-button {
@@ -474,27 +471,24 @@ footer {
     width: 100%;
     height: 30px; /* Adjust height */
     background-color: #181818; /* Dark background for the title bar */
-    display: flex;
+    display: hidden;
     align-items: center;
     padding: 0 0px 0 20px;
     justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 1000;
+
+
 	
-	-webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 /* Icon in Title Bar */
 #titleIcon {
-    width: 20px; /* Adjust icon size */
-    height: 20px;
+    width: 18px; /* Adjust icon size */
+    height: 18px;
     margin-right: 0px;
 
 }
@@ -505,7 +499,7 @@ padding-left:10px;
     flex-grow: 1;
     color: #7e7d7d;
     font-size: 12px;
-
+-webkit-app-region: drag;
 }
 
 /* Window Control Buttons */
@@ -580,6 +574,10 @@ background-color:red;
 	color:white;
 }
 
+.contentWrapper {
+    overflow-y: auto; /* Ensures content is scrollable */
+   /* height: calc(100vh - 40px);  Takes the rest of the viewport height below the title bar */
+}
 
 
 
@@ -588,17 +586,17 @@ background-color:red;
 
 
 </head>
-    <div id="customTitleBar" class="customTitleBar">
-        <img src="assets/icon.ico" id="titleIcon" alt="App Icon" class="icon">
-        <span id="windowTitle">Service Manuals</span> <!-- Page Name, will be dynamically set -->
+    <!-- <div id="customTitleBar" class="customTitleBar">
+        <img src="https://raw.githubusercontent.com/sdfsafasf/Service-Manual/main/icon.ico" id="titleIcon" alt="App Icon" class="icon">
+        <span id="windowTitle">Service Manuals</span> 
         <div class="windowButtons">
             <button id="minimizeButton" class="minimizeBtn">−</button>
             <button id="maximizeButton" class="maximizeBtn">☐</button>
             <button id="closeButton" class="closeBtn">✕</button>
         </div>
-    </div>
+    </div>-->
 
-
+<div class="contentWrapper">
 <header class="header">  
     <nav class="navigation">
         <ul>
@@ -9005,9 +9003,9 @@ clearButton.addEventListener("click", function () {
     <p id="copyright-year">© 2024 Service Manuals</p>
 </footer>
 
+</div>
     
-      
-<button onclick="scrollToTop()" id="back-to-top-button" class="back-to-top-button">Back to Top</button>
+<button onclick="scrollToTop()" class="back-to-top-button" id="back-to-top-button">Back to Top</button>
 
     
 </body>
