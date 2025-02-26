@@ -8484,9 +8484,10 @@ button:active {
 
 
 <script>
-        // Close Button
+        // Close Button functionality
         document.getElementById("closeButton").addEventListener("click", () => {
-            window.electronAPI.closeWindow(); // Close the application window
+            console.log("Close button clicked");
+            window.electronAPI.closeWindow(); // Sends a close window message to the main process
         });
 
         // Minimize Button
@@ -8497,6 +8498,11 @@ button:active {
         // Maximize Button
         document.getElementById("maximizeButton").addEventListener("click", () => {
             window.electronAPI.toggleMaximizeWindow(); // Toggle maximize window
+        });
+
+        // Double-click to maximize/restore
+        document.getElementById("customTitleBar").addEventListener('dblclick', () => {
+            window.electronAPI.toggleMaximizeWindow();
         });
 
         // Set the page title dynamically based on <title> tag
